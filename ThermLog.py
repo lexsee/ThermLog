@@ -4,6 +4,7 @@ KEYDICT = {".":","}
 file_path = None
 
 def DateToNum(filename):
+    'Открытие файла. Изменение данных.'
     with open(filename, "r") as f:
         file = f.read()
         for key in KEYDICT:
@@ -12,10 +13,12 @@ def DateToNum(filename):
         return file
 
 def WriteFile(file,item):
+    'Запись изменений в файл.'
     with open(file, "w") as ff:
         ff.write(item)
 
 def main(file_path):
+    'Перебор файлов в папке. Вызов служебных функций. Обратная связь с пользователем.'
     file_list = os.listdir(file_path)
     for file in file_list:
         if file.endswith(".xls"):
